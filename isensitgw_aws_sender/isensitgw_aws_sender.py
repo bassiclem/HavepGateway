@@ -8,11 +8,12 @@ if api_folder not in sys.path:
 from isensit_cloud import *
 from isensit_sql import *
 import threading
-
+import time
 
 jsonDict = {}
 deviceInfoDict = {}
 deviceValueDict = {}
+threads = {}
 row_count = 0
 sleeptime = 4.0
 #try:
@@ -32,6 +33,10 @@ def getData():
 #        db = ISensitGWMysql()
 #	if db.isConnected() is not None:
 #	    db.close_db()
+	for k in threads:
+   	    print "dict[%s] =" % k,threads[k]
+	global count
+	print "count ", count
         db.connect_to_db()
         data = db.read_first_five_beacon_data()
         if data is None:
@@ -51,7 +56,7 @@ def getData():
 #		print data[index]["row_count"], ": ", jsonDict["device"]["ID"]
 #                print "data ", index, ": ", jsonDict
 		if data[index] is not None:
-		    t = threading.Thread(target = uploadData, args = (data[index],))
+		    t = threading.Thread(target = uploadData, args = (data[index], index))
 		    t.setDaemon(True)
 		    t.start()
 #            row_count = data["row_count"]
@@ -91,19 +96,28 @@ def getData():
 #                print("Data was not uploaded reason: ")
 #                print(upload)
         db.close_db()
-    	t = threading.Timer(sleeptime, getData)
-	t.start()
+	checkThreads()
+#    	t = threading.Timer(sleeptime, getData)
+#	t.start()
 
 
-def uploadData(dataj):
+def uploadData(dataj, index):
     try:
 	if(dataj is not None):
+#	    rowcount = dataj["row_count"]
+#	    create_at = dataj["created_at"]
+#            deviceInfoDict['UUID'] = dataj["beacon_uuid"]
+#            deviceInfoDict['ID'] = dataj["beacon_major"]
+#            deviceValueDict['minor'] = dataj["beacon_minor"]
+#            deviceValueDict['rssi'] = dataj["beacon_rssi"]
+
 	    rowcount = dataj["row_count"]
-	    create_at = dataj["created_at"]
-            deviceInfoDict['UUID'] = dataj["beacon_uuid"]
-            deviceInfoDict['ID'] = dataj["beacon_major"]
-            deviceValueDict['minor'] = dataj["beacon_minor"]
+            deviceInfoDict['ID'] = dataj["beacon_id"]
+            deviceValueDict['accx'] = dataj["beacon_accx"]
+            deviceValueDict['accy'] = dataj["beacon_accy"]
+            deviceValueDict['accz'] = dataj["beacon_accz"]
             deviceValueDict['rssi'] = dataj["beacon_rssi"]
+	
 
             jsonDict['gatewayID'] = db.gatewayID
             jsonDict["device"] = deviceInfoDict
@@ -115,17 +129,40 @@ def uploadData(dataj):
 	print rowcount, "upload ",upload
     	if upload:
             print("upload successful, deleting row..")
-            db.connect_to_db()
-            db.delete_acc_beacon_data(rowcount)
+	    global count
+	    count = count + 1
+	    threads[index] = rowcount
+#            db.connect_to_db()
+#            db.delete_acc_beacon_data(rowcount)
 
         else:
+	    threads[index] = False
             print("Data was not uploaded reason: ")
             print(upload)
 	 
     except Exception as e:
         print(rowcount, "Error in Upload , reason: ", str(e))
-        db.close_db()
+#        db.close_db()
 
+
+def checkThreads():
+    while len(threads) is not 5:
+	print "threads count ", len(threads)
+	time.sleep(0.5)
+	checkThreads()
+    deleteData()
+    getData()
+	
+
+
+def deleteData():
+    db.connect_to_db()
+    for k in threads:
+        print "dict[%s] =" % k,threads[k]
+	if threads[k] is not False:
+	    db.delete_acc_beacon_data(threads[k])
+    db.close_db()
+    threads.clear()
 
 getData()
 
