@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `acc_beacons`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `acc_beacons` (
   `row_count` int(11) NOT NULL AUTO_INCREMENT,
-  `beacon_id` varchar(50) NOT NULL,
+  `beacon_id` int(11) NOT NULL,
   `beacon_accx` float NOT NULL,
   `beacon_accy` float NOT NULL,
   `beacon_accz` float NOT NULL,
