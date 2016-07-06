@@ -113,7 +113,7 @@ def uploadData(dataj, index):
 
 	    rowcount = dataj["row_count"]
             deviceInfoDict['ID'] = dataj["beacon_id"]
-            deviceValueDict['accx'] = dataj["beacon_accx"]
+            deviceValueDict['accx'] = str(dataj["beacon_accx"])
             deviceValueDict['accy'] = dataj["beacon_accy"]
             deviceValueDict['accz'] = dataj["beacon_accz"]
             deviceValueDict['rssi'] = dataj["beacon_rssi"]
