@@ -148,8 +148,7 @@ def uploadData(dataj, index):
 def checkThreads():
     while len(threads) is not 5:
 	print "threads count ", len(threads)
-	time.sleep(0.5)
-	checkThreads()
+	time.sleep(0.1)
     deleteData()
     getData()
 	
