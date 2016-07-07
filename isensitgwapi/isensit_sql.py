@@ -83,9 +83,29 @@ class ISensitGWMysql(object):
 
         else:
             if cursor.rowcount > 0:
+		print "cursor ", cursor.rowcount
                 return cursor.fetchone()
             else:
                 return None
+
+    def read_first_five_beacon_data(self, count):
+	data = []
+        try:
+            with self.connection.cursor() as cursor:
+                # Create a new record
+                cursor.execute("SELECT * from " + self.table + " limit " + str(count) + ";")
+
+        except Exception as e:
+            print("Error :", str(e))
+            return None
+
+        else:
+            if cursor.rowcount > 0:
+		data.append(cursor.fetchall())
+		return data
+            else:
+                return None
+
 
     def __sizeof__(self):
         return super().__sizeof__()
@@ -130,6 +150,7 @@ class ISensitGWMysql(object):
     def delete_acc_beacon_data(self, row_count):
         cursor = self.connection.cursor()
         delete_stmt = "DELETE FROM " + self.table + " WHERE row_count = %s"
+#	print delete_stmt, "  ", row_count
         cursor.execute(delete_stmt, (row_count,))
         self.connection.commit()
         
@@ -208,3 +229,5 @@ class ISensitGWMysql(object):
         self.connection.commit()
         
         
+    def isConnected(self):
+	return self.connection
