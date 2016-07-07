@@ -27,6 +27,7 @@ uploader = ISensitCloud()
 data = None
 count = 0
 db = ISensitGWMysql()
+num = 5
 
 def getData():
     try:
@@ -38,7 +39,7 @@ def getData():
 	global count
 	print "count ", count
         db.connect_to_db()
-        data = db.read_first_five_beacon_data(5)	
+        data = db.read_first_five_beacon_data(num)	
         if data is None:
             print("No data left")
         else:
@@ -146,7 +147,7 @@ def uploadData(dataj, index):
 
 
 def checkThreads():
-    while len(threads) is not 5:
+    while len(threads) is not num:
 #	print "threads count ", len(threads)
 	time.sleep(sleeptime)
     deleteData()
