@@ -15,7 +15,7 @@ deviceInfoDict = {}
 deviceValueDict = {}
 threads = {}
 row_count = 0
-sleeptime = 4.0
+sleeptime = 0.1
 #try:
     # initialize database reader
 #    a = 2
@@ -38,11 +38,11 @@ def getData():
 	global count
 	print "count ", count
         db.connect_to_db()
-        data = db.read_first_five_beacon_data()
+        data = db.read_first_five_beacon_data(5)	
         if data is None:
             print("No data left")
         else:
-	    for index in range(len(data)):
+	    for index in range(len(data[0])):
 #		row_count = data[index]["row_count"]
 #        	deviceInfoDict['UUID'] = data[index]["beacon_uuid"]
 #                deviceInfoDict['ID'] = data[index]["beacon_major"]
@@ -55,8 +55,8 @@ def getData():
 #		print row_count
 #		print data[index]["row_count"], ": ", jsonDict["device"]["ID"]
 #                print "data ", index, ": ", jsonDict
-		if data[index] is not None:
-		    t = threading.Thread(target = uploadData, args = (data[index], index))
+		if data[0][index] is not None:
+		    t = threading.Thread(target = uploadData, args = (data[0][index], index))
 		    t.setDaemon(True)
 		    t.start()
 #            row_count = data["row_count"]
@@ -97,8 +97,8 @@ def getData():
 #                print(upload)
         db.close_db()
 	checkThreads()
-#    	t = threading.Timer(sleeptime, getData)
-#	t.start()
+    	t = threading.Timer(sleeptime, getData)
+	t.start()
 
 
 def uploadData(dataj, index):
@@ -113,7 +113,7 @@ def uploadData(dataj, index):
 
 	    rowcount = dataj["row_count"]
             deviceInfoDict['ID'] = dataj["beacon_id"]
-            deviceValueDict['accx'] = str(dataj["beacon_accx"])
+            deviceValueDict['accx'] = dataj["beacon_accx"]
             deviceValueDict['accy'] = dataj["beacon_accy"]
             deviceValueDict['accz'] = dataj["beacon_accz"]
             deviceValueDict['rssi'] = dataj["beacon_rssi"]
@@ -147,8 +147,8 @@ def uploadData(dataj, index):
 
 def checkThreads():
     while len(threads) is not 5:
-	print "threads count ", len(threads)
-	time.sleep(0.1)
+#	print "threads count ", len(threads)
+	time.sleep(sleeptime)
     deleteData()
     getData()
 	
