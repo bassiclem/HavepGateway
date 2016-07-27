@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>isensit_sql &mdash; ISensit Gateway v1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ISensit Gateway v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>ISensit Gateway v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>isensit_sql</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <h1>Source code for isensit_sql</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="kn">from</span> <span class="nn">isensit_gw</span> <span class="k">import</span> <span class="n">ISensitGW</span>
+
+
+<div class="viewcode-block" id="ISensitGWMysql"><a class="viewcode-back" href="../api.html#isensit_sql.ISensitGWMysql">[docs]</a><span class="k">class</span> <span class="nc">ISensitGWMysql</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span> <span class="o">=</span> <span class="n">ISensitGW</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">init_json_config_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;acc_beacon_table&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gatewayID</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_gateway_name</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sleeptime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_sleeptime</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">connect_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+                <span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;hostname&#39;</span><span class="p">],</span>
+                <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+                <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span>
+                <span class="n">db</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span>
+                <span class="n">charset</span><span class="o">=</span><span class="s1">&#39;utf8mb4&#39;</span><span class="p">,</span>
+                <span class="n">cursorclass</span><span class="o">=</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection error: &quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mysql error: &quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span>
+
+    <span class="k">def</span> <span class="nf">close_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">open</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_cursor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">insert_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beacon_uuid</span><span class="p">,</span> <span class="n">beacon_major</span><span class="p">,</span> <span class="n">beacon_minor</span><span class="p">,</span> <span class="n">beacon_rssi</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; VALUES (NULL, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, CURRENT_TIMESTAMP)&quot;</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">beacon_uuid</span><span class="p">,</span> <span class="n">beacon_major</span><span class="p">,</span> <span class="n">beacon_minor</span><span class="p">,</span> <span class="n">beacon_rssi</span><span class="p">))</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="c1"># def set_table(self, table):</span>
+    <span class="c1">#     self.table = self.config_data.get_mysql_credentials()[table]</span>
+    <span class="c1">#</span>
+    <span class="c1"># def get_first_row_id(self):</span>
+    <span class="c1">#     return 0</span>
+
+    <span class="k">def</span> <span class="nf">read_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_count</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;beacon_table&#39;</span><span class="p">]</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; where row_count = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">row_count</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">read_first_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="c1"># Create a new record</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; limit 1;&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cursor &quot;</span><span class="p">,</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">read_first_five_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="c1"># Create a new record</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; limit &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+                <span class="k">return</span> <span class="n">data</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__sizeof__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__sizeof__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_count</span><span class="p">):</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">delete_stmt</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; WHERE row_count = </span><span class="si">%s</span><span class="s2">&quot;</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">delete_stmt</span><span class="p">,</span> <span class="p">(</span><span class="n">row_count</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">insert_acc_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beacon_id</span><span class="p">,</span> <span class="n">beacon_accx</span><span class="p">,</span> <span class="n">beacon_accy</span><span class="p">,</span> <span class="n">beacon_accz</span><span class="p">,</span> <span class="n">beacon_rssi</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="c1"># Create a new record</span>
+                <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; VALUES (NULL, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, CURRENT_TIMESTAMP)&quot;</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">beacon_id</span><span class="p">,</span> <span class="n">beacon_accx</span><span class="p">,</span> <span class="n">beacon_accy</span><span class="p">,</span> <span class="n">beacon_accz</span><span class="p">,</span> <span class="n">beacon_rssi</span><span class="p">))</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_first_acc_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="c1"># Create a new record</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; limit 1;&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">delete_acc_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_count</span><span class="p">):</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">delete_stmt</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; WHERE row_count = </span><span class="si">%s</span><span class="s2">&quot;</span>
+        <span class="c1"># print delete_stmt, &quot;  &quot;, row_count</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">delete_stmt</span><span class="p">,</span> <span class="p">(</span><span class="n">row_count</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_last_acc_beacon_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beacon_id</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="c1"># Create a new record</span>
+                <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; WHERE beacon_id = </span><span class="si">%s</span><span class="s2"> order by row_count desc limit 1;&quot;</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">beacon_id</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="s2">&quot;beacon_accz&quot;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">read_last_acc_beacon_total_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; order by row_count desc limit 1;&quot;</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">read_last_acc_beacon_degree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beacon_id</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; WHERE beacon_id = </span><span class="si">%s</span><span class="s2"> order by row_count desc limit 1;&quot;</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">beacon_id</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error :&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">get_data_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span>
+
+    <span class="k">def</span> <span class="nf">get_first_row_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;beacon_table&#39;</span><span class="p">]</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT row_count FROM &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">read_user_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_count</span><span class="p">):</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; where user_id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">row_count</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete_user_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_count</span><span class="p">):</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">delete_stmt</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">+</span> <span class="s2">&quot; WHERE user_id </span><span class="si">%s</span><span class="s2">&quot;</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">delete_stmt</span><span class="p">,</span> <span class="p">(</span><span class="n">row_count</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">is_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span></div>
+</pre></div>
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Saujan Ghimire.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

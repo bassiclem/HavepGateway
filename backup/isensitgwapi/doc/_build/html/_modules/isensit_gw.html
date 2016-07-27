@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>isensit_gw &mdash; ISensit Gateway v1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ISensit Gateway v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="../index.html">
+          <span>ISensit Gateway v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>isensit_gw</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <h1>Source code for isensit_gw</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Created by Saujan Ghimire 5-17-2016</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pymysql</span>
+
+
+<span class="c1"># ISensitGW API Class holding common funcitons for gateway Interaction</span>
+
+
+<div class="viewcode-block" id="ISensitGW"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW">[docs]</a><span class="k">class</span> <span class="nc">ISensitGW</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle gateway configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialise ISensitGW Class&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># static methods do not receive first implicit argument--&gt; self</span>
+
+<div class="viewcode-block" id="ISensitGW.init_json_config_data"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.init_json_config_data">[docs]</a>    <span class="k">def</span> <span class="nf">init_json_config_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise class via the json config file.</span>
+<span class="sd">        :return: True if config file was found, Flase if not found.</span>
+<span class="sd">        :rtype: Boolean</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># TODO - change to absolute path for other systems</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/pi/ISensitGateway/isensitgwapi/ISENSIT_GW.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File was not found&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_gateway_name"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_gateway_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_gateway_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the current gateway name.</span>
+<span class="sd">        :return: gateway id</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;gatewayName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;gatewayID&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_post_url"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_post_url">[docs]</a>    <span class="k">def</span> <span class="nf">get_post_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the AWS POST URL.</span>
+<span class="sd">        :return: POST url</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;post_url&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_get_url"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_get_url">[docs]</a>    <span class="k">def</span> <span class="nf">get_get_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the GET url of AWS.</span>
+<span class="sd">        :return: aws url</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;get_url&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_gateway_id"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_gateway_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_gateway_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the gateway id</span>
+<span class="sd">        :return: gateway id</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;gatewayID&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_aws_credentials"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_aws_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_aws_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return SECRET KEY and ACCESS KEY for AWS</span>
+<span class="sd">        :rtype: object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;awsCredentials&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_software_version"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_software_version">[docs]</a>    <span class="k">def</span> <span class="nf">get_software_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrun the Software Version</span>
+<span class="sd">        :return: software version</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;software_version&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_mysql_credentials"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_mysql_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_mysql_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return MySQL credentials, host, username and password</span>
+<span class="sd">        :return: Host, Username, Password</span>
+<span class="sd">        :rtype: object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;mysql_credentials&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.get_mysql_sleeptime"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.get_mysql_sleeptime">[docs]</a>    <span class="k">def</span> <span class="nf">get_mysql_sleeptime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return Sleeptime for BLE reading</span>
+<span class="sd">        :return: sleeptime</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="p">[</span><span class="s1">&#39;sleep_time&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ISensitGW.set_software_version"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.set_software_version">[docs]</a>    <span class="k">def</span> <span class="nf">set_software_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set Gateway Software Version</span>
+<span class="sd">        :param version: new version to set</span>
+<span class="sd">        :type version: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_config_file</span><span class="p">(</span><span class="s1">&#39;software_version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span></div>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ISensitGW.update_config_file"><a class="viewcode-back" href="../tutorial.html#isensit_gw.ISensitGW.update_config_file">[docs]</a>    <span class="k">def</span> <span class="nf">update_config_file</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update Config File</span>
+<span class="sd">        :param item: Key for the config file</span>
+<span class="sd">        :type item: String</span>
+<span class="sd">        :param value: Value for the Key</span>
+<span class="sd">        :type value: String</span>
+<span class="sd">        :return: success status</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ISENSIT_GW.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">settingsData</span><span class="p">:</span>
+            <span class="n">settings</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">settingsData</span><span class="p">)</span>
+            <span class="n">settings</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>  <span class="c1"># update the make of the first car</span>
+
+            <span class="n">settingsData</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># rewind to beginning of file</span>
+            <span class="n">settingsData</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># write the updated version</span>
+            <span class="n">settingsData</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>  <span class="c1"># truncate the remainder of the data in the file</span>
+            <span class="k">return</span> <span class="s2">&quot;success&quot;</span></div></div>
+
+</pre></div>
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Saujan Ghimire.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

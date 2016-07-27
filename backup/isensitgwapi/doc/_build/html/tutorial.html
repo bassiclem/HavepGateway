@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gateway API Tutorial &mdash; ISensit Gateway v1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'v1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ISensit Gateway v1.0 documentation" href="index.html" />
+    <link rel="prev" title="The ISensit Gateway API Reference" href="api.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>ISensit Gateway v1.0 documentation</span></a></h1>
+        <h2 class="heading"><span>Gateway API Tutorial</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="api.html">The ISensit Gateway API Reference</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="gateway-api-tutorial">
+<h1>Gateway API Tutorial<a class="headerlink" href="#gateway-api-tutorial" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="isensit_gw.ISensitGW">
+<em class="property">class </em><code class="descclassname">isensit_gw.</code><code class="descname">ISensitGW</code><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle gateway configuration.</p>
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_aws_credentials">
+<code class="descname">get_aws_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_aws_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_aws_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return SECRET KEY and ACCESS KEY for AWS
+:rtype: object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_gateway_id">
+<code class="descname">get_gateway_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_gateway_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_gateway_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the gateway id
+:return: gateway id
+:rtype: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_gateway_name">
+<code class="descname">get_gateway_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_gateway_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_gateway_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current gateway name.
+:return: gateway id
+:rtype: string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_get_url">
+<code class="descname">get_get_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_get_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_get_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the GET url of AWS.
+:return: aws url
+:rtype: str</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_mysql_credentials">
+<code class="descname">get_mysql_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_mysql_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_mysql_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return MySQL credentials, host, username and password
+:return: Host, Username, Password
+:rtype: object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_mysql_sleeptime">
+<code class="descname">get_mysql_sleeptime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_mysql_sleeptime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_mysql_sleeptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Sleeptime for BLE reading
+:return: sleeptime
+:rtype: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_post_url">
+<code class="descname">get_post_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_post_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_post_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the AWS POST URL.
+:return: POST url
+:rtype: string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.get_software_version">
+<code class="descname">get_software_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_software_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_software_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrun the Software Version
+:return: software version
+:rtype: string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.init_json_config_data">
+<code class="descname">init_json_config_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.init_json_config_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.init_json_config_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise class via the json config file.
+:return: True if config file was found, Flase if not found.
+:rtype: Boolean</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="isensit_gw.ISensitGW.set_software_version">
+<code class="descname">set_software_version</code><span class="sig-paren">(</span><em>version</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.set_software_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.set_software_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Gateway Software Version
+:param version: new version to set
+:type version: string</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="isensit_gw.ISensitGW.update_config_file">
+<em class="property">static </em><code class="descname">update_config_file</code><span class="sig-paren">(</span><em>item</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.update_config_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.update_config_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update Config File
+:param item: Key for the config file
+:type item: String
+:param value: Value for the Key
+:type value: String
+:return: success status
+:rtype: string</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="api.html">The ISensit Gateway API Reference</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Saujan Ghimire.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>
