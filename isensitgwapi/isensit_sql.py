@@ -83,13 +83,13 @@ class ISensitGWMysql(object):
 
         else:
             if cursor.rowcount > 0:
-		print "cursor ", cursor.rowcount
+                print("cursor ", cursor.rowcount)
                 return cursor.fetchone()
             else:
                 return None
 
     def read_first_five_beacon_data(self, count):
-	data = []
+        data = []
         try:
             with self.connection.cursor() as cursor:
                 # Create a new record
@@ -101,11 +101,10 @@ class ISensitGWMysql(object):
 
         else:
             if cursor.rowcount > 0:
-		data.append(cursor.fetchall())
-		return data
+                data.append(cursor.fetchall())
+                return data
             else:
                 return None
-
 
     def __sizeof__(self):
         return super().__sizeof__()
@@ -146,21 +145,21 @@ class ISensitGWMysql(object):
                 return cursor.fetchone()
             else:
                 return None
-                
+
     def delete_acc_beacon_data(self, row_count):
         cursor = self.connection.cursor()
         delete_stmt = "DELETE FROM " + self.table + " WHERE row_count = %s"
-#	print delete_stmt, "  ", row_count
+        # print delete_stmt, "  ", row_count
         cursor.execute(delete_stmt, (row_count,))
         self.connection.commit()
-        
+
     def read_last_acc_beacon_data(self, beacon_id):
         try:
             with self.connection.cursor() as cursor:
                 # Create a new record
-				sql = "SELECT * from " + self.table + " WHERE beacon_id = %s order by row_count desc limit 1;"
-				cursor.execute(sql, beacon_id)
-              
+                sql = "SELECT * from " + self.table + " WHERE beacon_id = %s order by row_count desc limit 1;"
+                cursor.execute(sql, beacon_id)
+
         except Exception as e:
             print("Error :", str(e))
             return None
@@ -172,11 +171,11 @@ class ISensitGWMysql(object):
                 return None
 
     def read_last_acc_beacon_total_data(self):
-	try:
-	    with self.connection.cursor() as cursor:
-  	        sql = "SELECT * from " + self.table + " order by row_count desc limit 1;"
-	        cursor.execute(sql)
-				  
+        try:
+            with self.connection.cursor() as cursor:
+                sql = "SELECT * from " + self.table + " order by row_count desc limit 1;"
+                cursor.execute(sql)
+
         except Exception as e:
             print("Error :", str(e))
             return None
@@ -186,13 +185,13 @@ class ISensitGWMysql(object):
                 return cursor.fetchone()
             else:
                 return None
-                
+
     def read_last_acc_beacon_degree(self, beacon_id):
-	try:
-	    with self.connection.cursor() as cursor:
-  	        sql = "SELECT * from " + self.table + " WHERE beacon_id = %s order by row_count desc limit 1;"
-	        cursor.execute(sql, beacon_id)
-				  
+        try:
+            with self.connection.cursor() as cursor:
+                sql = "SELECT * from " + self.table + " WHERE beacon_id = %s order by row_count desc limit 1;"
+                cursor.execute(sql, beacon_id)
+
         except Exception as e:
             print("Error :", str(e))
             return None
@@ -202,7 +201,7 @@ class ISensitGWMysql(object):
                 return cursor.fetchone()
             else:
                 return None
-				
+
     def get_data_count(self):
         with self.connection.cursor() as cursor:
             cursor.execute("SELECT * FROM " + self.table)
@@ -227,7 +226,6 @@ class ISensitGWMysql(object):
         delete_stmt = "DELETE FROM " + self.table + " WHERE user_id %s"
         cursor.execute(delete_stmt, (row_count,))
         self.connection.commit()
-        
-        
+
     def isConnected(self):
-	return self.connection
+        return self.connection

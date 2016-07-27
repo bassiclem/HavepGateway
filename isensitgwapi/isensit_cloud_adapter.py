@@ -14,6 +14,12 @@ class Data:
         
 
 def postdata(self):
+
+    """ Post Data to cloud
+
+    @param self: Will take its own attributes
+    @type self: generic array
+    """
     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 # disable SSLV3 certificate check , aws does not support it
     urllib3.contrib.pyopenssl.inject_into_urllib3()
@@ -30,8 +36,6 @@ def postdata(self):
     
     n = json.dumps(datax)
     jsons = json.loads(n)
-    print (datax)
-    r = requests.post('https://lk9lsgdzih.execute-api.eu-central-1.amazonaws.com/beta/gateway', n)
-    print (r.text)
-
-
+    print(datax)
+    r = requests.post('https://lk9lsgdzih.execute-api.eu-central-1.amazonaws.com/beta/gateway', n, timeout=3)
+    print(r.text)

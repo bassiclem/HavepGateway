@@ -127,7 +127,7 @@ def uploadData(dataj, index):
 #	    print "row count ", rowcount, "upload Data :", jsonDict["device"]["ID"]
 
     	upload = uploader.post_data(jsonDict)
-	print rowcount, "upload ",upload
+	print (rowcount, "upload ",upload)
     	if upload:
             print("upload successful, deleting row..")
 	    global count
@@ -158,7 +158,7 @@ def checkThreads():
 def deleteData():
     db.connect_to_db()
     for k in threads:
-        print "dict[%s] =" % k,threads[k]
+        print ("dict[%s] =" % k,threads[k])
 	if threads[k] is not False:
 	    db.delete_acc_beacon_data(threads[k])
     db.close_db()

@@ -126,6 +126,7 @@ t.start()
 
 while True:
     returnedList = parse_events(sock)
+
     if returnedList is not None:
         id = returnedList["device_info"]["ID"][0]
         if (id not in idList):
