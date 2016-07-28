@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Saujan Ghimire
+# This file is distributed under the same license as the ISensit Gateway
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ISensit Gateway v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-27 15:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../api.rst:2
+msgid "The ISensit Gateway API Reference"
+msgstr ""
+
+#: ../../api.rst:5
+msgid "ISensitGW"
+msgstr ""
+
+#: isensit_gw.ISensitGW:1 of
+msgid "Handle gateway configuration."
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_aws_credentials:1 of
+msgid "Return SECRET KEY and ACCESS KEY for AWS :rtype: object"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_gateway_id:1 of
+msgid "Return the gateway id :return: gateway id :rtype: int"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_gateway_name:1 of
+msgid "Return the current gateway name. :return: gateway id :rtype: string"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_get_url:1 of
+msgid "Return the GET url of AWS. :return: aws url :rtype: str"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_mysql_credentials:1 of
+msgid ""
+"Return MySQL credentials, host, username and password :return: Host, "
+"Username, Password :rtype: object"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_mysql_sleeptime:1 of
+msgid "Return Sleeptime for BLE reading :return: sleeptime :rtype: int"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_post_url:1 of
+msgid "Return the AWS POST URL. :return: POST url :rtype: string"
+msgstr ""
+
+#: isensit_gw.ISensitGW.get_software_version:1 of
+msgid "Retrun the Software Version :return: software version :rtype: string"
+msgstr ""
+
+#: isensit_gw.ISensitGW.init_json_config_data:1 of
+msgid ""
+"Initialise class via the json config file. :return: True if config file "
+"was found, Flase if not found. :rtype: Boolean"
+msgstr ""
+
+#: isensit_gw.ISensitGW.set_software_version:1 of
+msgid ""
+"Set Gateway Software Version :param version: new version to set :type "
+"version: string"
+msgstr ""
+
+#: isensit_gw.ISensitGW.update_config_file:1 of
+msgid ""
+"Update Config File :param item: Key for the config file :type item: "
+"String :param value: Value for the Key :type value: String :return: "
+"success status :rtype: string"
+msgstr ""
+
+#: ../../api.rst:14
+msgid "ISensitGWMySql"
+msgstr ""
+
