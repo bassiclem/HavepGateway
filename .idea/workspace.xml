@@ -1,60 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6945510f-4b21-473f-9837-5f23e03759ba" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/alabaster.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/alert_info_32.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/alert_warning_32.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/bg-page.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/bullet_orange.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/css/badge_only.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/css/theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/custom.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/Inconsolata-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/Inconsolata-Regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/Lato-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/Lato-Regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/RobotoSlab-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/RobotoSlab-Regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/haiku.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/js/modernizr.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/js/theme.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/text/api.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/text/index.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/text/tutorial.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/api.doctree" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/api.doctree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/environment.pickle" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/environment.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/index.doctree" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/index.doctree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/tutorial.doctree" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/doctrees/tutorial.doctree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/objects.inv" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/objects.inv" />
+    <list default="true" id="6945510f-4b21-473f-9837-5f23e03759ba" name="Default" comment="added Sphinx and backup">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgw_ble_reader/isensitgw_ble_reader.py" afterPath="$PROJECT_DIR$/backup/isensitgw_ble_reader/isensitgw_ble_reader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/.buildinfo" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/.buildinfo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_modules/index.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_modules/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_modules/isensit_gw.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_modules/isensit_gw.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_modules/isensit_sql.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_modules/isensit_sql.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_sources/api.txt" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_sources/api.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_sources/index.txt" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_sources/index.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_sources/tutorial.txt" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_sources/tutorial.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/_static/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/api.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/api.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/genindex.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/genindex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/index.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/search.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/searchindex.js" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/searchindex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/tutorial.html" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/_build/html/tutorial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/api.rst" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/api.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/conf.py" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/conf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/index.rst" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/index.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/doc/tutorial.rst" afterPath="$PROJECT_DIR$/backup/isensitgwapi/doc/tutorial.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/isensit_cloud.py" afterPath="$PROJECT_DIR$/backup/isensitgwapi/isensit_cloud.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/isensit_gw.py" afterPath="$PROJECT_DIR$/backup/isensitgwapi/isensit_gw.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgwapi/isensit_sql.py" afterPath="$PROJECT_DIR$/backup/isensitgwapi/isensit_sql.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/isensitgw_aws_sender/isensitgw_aws_sender_original.py" afterPath="$PROJECT_DIR$/isensitgw_aws_sender/isensitgw_aws_sender_original.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/isensitgw_ble_reader/isensitgw_ble_reader.py" afterPath="$PROJECT_DIR$/isensitgw_ble_reader/isensitgw_ble_reader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.py" afterPath="$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender_original.py" afterPath="$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender_original.py" />
     </list>
     <ignored path="HavepGateway.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,14 +42,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="isensit_gw.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="isensit_gw.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backup/isensitgwapi/isensit_gw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+            <state relative-caret-position="323">
+              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
               <folding>
                 <element signature="e#38#49#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="isensitgw_aws_sender.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2754">
+              <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="isensitgw_aws_sender.status" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.status">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="isensitgw_aws_sender_original.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender_original.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,6 +127,8 @@
         <option value="$PROJECT_DIR$/backup/isensitgwapi/doc/index.rst" />
         <option value="$PROJECT_DIR$/isensitgw_ble_reader/isensitgw_ble_reader.py" />
         <option value="$PROJECT_DIR$/backup/isensitgwapi/isensit_gw.py" />
+        <option value="$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender_original.py" />
+        <option value="$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.py" />
       </list>
     </option>
   </component>
@@ -215,20 +197,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="isensitgw_ble_reader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HavepGateway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HavepGateway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="backup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -247,7 +215,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="isensitgwapi" />
+              <option name="myItemId" value="isensitgw_aws_sender" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -665,34 +633,41 @@
       <option name="project" value="LOCAL" />
       <updated>1469602923488</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added Sphinx and backup">
+      <created>1469715715011</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1469715715011</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29955456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2951002" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29955456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2951002" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14285715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Concurrent Activities Diagram" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -707,6 +682,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="added logger and aws test files" />
     <MESSAGE value="added Sphinx and backup" />
     <option name="LAST_COMMIT_MESSAGE" value="added Sphinx and backup" />
@@ -724,13 +700,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ISensitGateway/isensitgwapi/lib/blescan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base_files/isensit_gw.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -975,14 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://Python/#C:/Users/2M Sensor/PycharmProjects/HavepGateway/backup/isensitgw_aws_sender/isensitgw_aws_sender.py">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1148,14 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender_original.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backup/isensitgw_ble_reader/isensitgw_ble_reader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-375">
@@ -1248,11 +1201,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backup/isensitgwapi/isensit_gw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        <state relative-caret-position="323">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding>
             <element signature="e#38#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.status">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender_original.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backup/isensitgw_aws_sender/isensitgw_aws_sender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2754">
+          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
