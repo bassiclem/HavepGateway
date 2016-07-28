@@ -15,22 +15,31 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 urllib3.contrib.pyopenssl.inject_into_urllib3()
 
 # Register an handler for the timeout
+
+
 def handler(signum, frame):
    print("Function timeout was called!")
    raise Exception("func timeout")
 
+
 class ISensitCloud:
+    """ Provides interface to external cloud services"""
     def __init__(self):
+        """
+        initialize variables and load config data `ISensitGW`
+        """
         self.config_data = ISensitGW()
         self.config_data.init_json_config_data()
         self.post_counter = 0
         # Register the signal function handler
-        signal.signal(signal.SIGALRM, handler)    
-    
-  
+        signal.signal(signal.SIGALRM, handler)
         
     def get_gateway_data(self):
-
+        """
+        checks for gateway get url
+        :return: url
+        :rtype: string
+        """
         try:
             self.config_data.get_get_url() is not None
         except TypeError:
@@ -53,7 +62,13 @@ class ISensitCloud:
                 return r.text
 
     def post_data(self, post_data):
-    
+        """
+        performs POST operation to the destination post url in config file
+        :param post_data: json data
+        :type post_data: string
+        :return: success, text, json
+        :rtype: boolean, string
+        """
         signal.alarm(1)
         #sleep(4)
         try:

@@ -1,165 +1,339 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<html lang="ennl">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     
-    <title>Gateway API Tutorial &mdash; ISensit Gateway v1.0 documentation</title>
+    <title>Tutorial: API Usage — The Gateway tutorial &mdash; ISensit Gateway v1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-yeti.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-yeti.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     'v1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     'v1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
     <link rel="top" title="ISensit Gateway v1.0 documentation" href="index.html" />
     <link rel="prev" title="The ISensit Gateway API Reference" href="api.html" /> 
   </head>
   <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>ISensit Gateway v1.0 documentation</span></a></h1>
-        <h2 class="heading"><span>Gateway API Tutorial</span></h2>
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">ISensit Gateway v1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="api.html" title="The ISensit Gateway API Reference" accesskey="P">previous </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/tutorial.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="api.html">The ISensit Gateway API Reference</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
+    </div>
+    
 
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="api.html"
+                        title="previous chapter">The ISensit Gateway API Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tutorial.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
       </div>
-      <div class="content">
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
         
-        
-  <div class="section" id="gateway-api-tutorial">
-<h1>Gateway API Tutorial<a class="headerlink" href="#gateway-api-tutorial" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="isensit_gw.ISensitGW">
-<em class="property">class </em><code class="descclassname">isensit_gw.</code><code class="descname">ISensitGW</code><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handle gateway configuration.</p>
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_aws_credentials">
-<code class="descname">get_aws_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_aws_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_aws_credentials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return SECRET KEY and ACCESS KEY for AWS
-:rtype: object</p>
-</dd></dl>
 
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_gateway_id">
-<code class="descname">get_gateway_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_gateway_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_gateway_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the gateway id
-:return: gateway id
-:rtype: int</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_gateway_name">
-<code class="descname">get_gateway_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_gateway_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_gateway_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the current gateway name.
-:return: gateway id
-:rtype: string</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_get_url">
-<code class="descname">get_get_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_get_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_get_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the GET url of AWS.
-:return: aws url
-:rtype: str</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_mysql_credentials">
-<code class="descname">get_mysql_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_mysql_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_mysql_credentials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return MySQL credentials, host, username and password
-:return: Host, Username, Password
-:rtype: object</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_mysql_sleeptime">
-<code class="descname">get_mysql_sleeptime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_mysql_sleeptime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_mysql_sleeptime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return Sleeptime for BLE reading
-:return: sleeptime
-:rtype: int</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_post_url">
-<code class="descname">get_post_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_post_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_post_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the AWS POST URL.
-:return: POST url
-:rtype: string</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.get_software_version">
-<code class="descname">get_software_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.get_software_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.get_software_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrun the Software Version
-:return: software version
-:rtype: string</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.init_json_config_data">
-<code class="descname">init_json_config_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.init_json_config_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.init_json_config_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialise class via the json config file.
-:return: True if config file was found, Flase if not found.
-:rtype: Boolean</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="isensit_gw.ISensitGW.set_software_version">
-<code class="descname">set_software_version</code><span class="sig-paren">(</span><em>version</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.set_software_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.set_software_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set Gateway Software Version
-:param version: new version to set
-:type version: string</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="isensit_gw.ISensitGW.update_config_file">
-<em class="property">static </em><code class="descname">update_config_file</code><span class="sig-paren">(</span><em>item</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/isensit_gw.html#ISensitGW.update_config_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#isensit_gw.ISensitGW.update_config_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update Config File
-:param item: Key for the config file
-:type item: String
-:param value: Value for the Key
-:type value: String
-:return: success status
-:rtype: string</p>
-</dd></dl>
-
-</dd></dl>
-
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="tutorial-api-usage-the-gateway-tutorial">
+<h1>Tutorial: API Usage — The Gateway tutorial<a class="headerlink" href="#tutorial-api-usage-the-gateway-tutorial" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p id="index-0"><em>“There is no royal road to geometry.”</em> — Euclid</p>
+</div></blockquote>
+<p>This module makes ISensit Gateway fun!
+The beginner will enjoy how the <a class="reference internal" href="api.html#isensit_gw.ISensitGW" title="isensit_gw.ISensitGW"><code class="xref py py-mod docutils literal"><span class="pre">ISensitGW</span></code></a> module
+lets you get started quickly.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">isensit_gw</span> <span class="k">import</span> <span class="n">ISensitGW</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ISensitGW</span><span class="o">.</span><span class="n">get_aws_credentials</span><span class="p">()</span>
+<span class="go">SUCCESS</span>
+</pre></div>
+</div>
+<p>But fancier programmers can use the <a class="reference internal" href="api.html#isensit_gw.ISensitGW" title="isensit_gw.ISensitGW"><code class="xref py py-class docutils literal"><span class="pre">ISensitGW</span></code></a>
+class to create an actual gateway <em>object</em>
+upon which they can then perform lots of operations.
+For example, consider this Python program:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">isensit_gw</span> <span class="k">import</span> <span class="n">ISensitGW</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;hostname&#39;</span><span class="p">],</span>
+    <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+    <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span>
+    <span class="n">db</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_data</span><span class="o">.</span><span class="n">get_mysql_credentials</span><span class="p">()[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span>
+    <span class="n">charset</span><span class="o">=</span><span class="s1">&#39;utf8mb4&#39;</span><span class="p">,</span>
+    <span class="n">cursorclass</span><span class="o">=</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since methods like <code class="xref py py-meth docutils literal"><span class="pre">get_gateway_id()</span></code>
+return Boolean int, this program will produce the following output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>123
+</pre></div>
+</div>
+<p>Read <a class="reference internal" href="api.html"><span class="doc">The ISensit Gateway API Reference</span></a> to learn more!</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is only dummy tutorial by Saujan it shall be duly updated.</p>
+</div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">ISensit Gateway v1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
-        <p>
-        «&#160;&#160;<a href="api.html">The ISensit Gateway API Reference</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
+        <li><a href="api.html" title="The ISensit Gateway API Reference" >previous</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2016, Saujan Ghimire.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.5.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
         </p>
 
-      </div>
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Saujan Ghimire.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
-    </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
   </body>
 </html>

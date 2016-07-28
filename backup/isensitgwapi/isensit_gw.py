@@ -1,6 +1,24 @@
 # Created by Saujan Ghimire 5-17-2016
 import json
 import pymysql
+import os, sys
+
+
+class ISensitUtil:
+    """
+    Provides Funcitions for OS related Items
+    """
+    def __init__(self):
+        self.test = 0
+
+    @staticmethod
+    def get_status():
+        """
+        get the current status of the system
+        """
+        print(os.getcwd())
+        print(os.environ)
+        print(os.walk('./'))
 
 
 # ISensitGW API Class holding common funcitons for gateway Interaction

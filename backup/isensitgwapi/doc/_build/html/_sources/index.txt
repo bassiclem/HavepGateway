@@ -6,6 +6,9 @@
 Welcome to ISensit Gateway's documentation!
 ===========================================
 
+.. raw:: html
+   <a class="btn btn-md btn-primary" href="www.isensitgateway.com" data-toggle="modal" data-target=".debug-modal">Go Back</a>
+
 Contents:
 
 .. toctree::

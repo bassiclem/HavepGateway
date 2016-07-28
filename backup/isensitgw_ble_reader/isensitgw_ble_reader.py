@@ -26,13 +26,14 @@ def get_degree():
     print("---------------------------------------------------------------------------------------")
     print (datetime.datetime.now())
     for id in idList:
-        print "id ", id
+        print ("id ", id)
         state = 0
         accx_max = -2
         accy_max = -2
         accz_max = -2
         for r in resultDict[id]:
-            if (accz_max < float(r["values"]["ACCZ"][0])):
+            if accz_max < float(r["values"]["ACCZ"][0]):
+            if accz_max < float(r["values"]["ACCZ"][0]):
                 accx_max = float(r["values"]["ACCX"][0])
                 accy_max = float(r["values"]["ACCY"][0])
                 accz_max = float(r["values"]["ACCZ"][0])
@@ -49,7 +50,7 @@ def get_degree():
         t.start()
 	running = False
     else:
-        print "System exit"
+        print ("System exit")
 
 sock = hci_start_scan(dev_id)
 

@@ -73,7 +73,10 @@ release = 'v1.0'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
+locale_dirs = ['locale/']
+# New in ver 1.1
+gettext_compact = True
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -128,7 +131,84 @@ todo_include_todos = True
 #
 # html_theme = 'sphinx_rtd_theme'
 
-html_theme = 'haiku'
+# html_theme = 'haiku'
+# html_theme = 'sphinxdoc'
+extensions += ['sphinxjp.themes.basicstrap']
+html_theme = 'basicstrap'
+
+
+# -- HTML theme options for `basicstrap` style -------
+
+html_theme_options = {
+
+    # Set the lang attribute of the html tag. Defaults to 'en'
+    'lang': 'en' 'nl',
+    # Disable showing the sidebar. Defaults to 'false'
+    'nosidebar': False,
+    # Show header searchbox. Defaults to false. works only "nosidber=True",
+    'header_searchbox': False,
+
+    # Put the sidebar on the right side. Defaults to false.
+    'rightsidebar': False,
+    # Set the width of the sidebar. Defaults to 3
+    'sidebar_span': 3,
+
+    # Fix navbar to top of screen. Defaults to true
+    'nav_fixed_top': True,
+    # Fix the width of the sidebar. Defaults to false
+    'nav_fixed': False,
+    # Set the width of the sidebar. Defaults to '900px'
+    'nav_width': '900px',
+    # Fix the width of the content area. Defaults to false
+
+    'content_fixed': False,
+    # Set the width of the content area. Defaults to '900px'
+    'content_width': '900px',
+    # Fix the width of the row. Defaults to false
+    'row_fixed': False,
+
+    # Disable the responsive design. Defaults to false
+    'noresponsive': False,
+    # Disable the responsive footer relbar. Defaults to false
+    'noresponsiverelbar': False,
+    # Disable flat design. Defaults to false.
+    # Works only "bootstrap_version = 3"
+    'noflatdesign': False,
+
+    # Enable Google Web Font. Defaults to false
+    'googlewebfont': False,
+    # Set the URL of Google Web Font's CSS.
+    # Defaults to 'http://fonts.googleapis.com/css?family=Text+Me+One'
+    'googlewebfont_url': 'http://fonts.googleapis.com/css?family=Lily+Script+One',  # NOQA
+    # Set the Style of Google Web Font's CSS.
+    # Defaults to "font-family: 'Text Me One', sans-serif;"
+    'googlewebfont_style': u"font-family: 'Lily Script One' cursive;",
+
+    # Set 'navbar-inverse' attribute to header navbar. Defaults to false.
+    'header_inverse': True,
+    # Set 'navbar-inverse' attribute to relbar navbar. Defaults to false.
+    'relbar_inverse': True,
+
+    # Enable inner theme by Bootswatch. Defaults to false
+    'inner_theme': True,
+    # Set the name of innner theme. Defaults to 'bootswatch-simplex'
+    'inner_theme_name': 'bootswatch-yeti',
+    # 'inner_theme_name': 'bootswatch-simplex',
+
+    # Select Twitter bootstrap version 2 or 3. Defaults to '3'
+    'bootstrap_version': '3',
+
+    # Show "theme preview" button in header navbar. Defaults to false.
+    'theme_preview': True,
+
+    # Set the Size of Heading text. Defaults to None
+    # 'h1_size': '3.0em',
+    # 'h2_size': '2.6em',
+    # 'h3_size': '2.2em',
+    # 'h4_size': '1.8em',
+    # 'h5_size': '1.4em',
+    # 'h6_size': '1.1em',
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -142,7 +222,7 @@ html_theme = 'haiku'
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = 'ISensit Gateway vv1.0'
+# html_title = 'ISensit Gateway v1.0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #

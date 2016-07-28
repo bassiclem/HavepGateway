@@ -14,20 +14,20 @@ import time
 import threading
 
 def get_degree():
-    print "---------------------------------------------------------------------------------------"
+    print ("---------------------------------------------------------------------------------------")
     for id in idList:
-	print "id ", id
+        print ("id ", id)
         state = 0
         accx_max = -2
         accy_max = -2
         accz_max = -2
         for r in resultDict[id]:
 #            print "r ",r
-            if(accz_max < float(r["values"]["ACCZ"][0])):
-	        accx_max = float(r["values"]["ACCX"][0])
-	        accy_max = float(r["values"]["ACCY"][0])
-	        accz_max = float(r["values"]["ACCZ"][0])
-	        rssi = r["values"]["RSSI"][0]
+        if(accz_max < float(r["values"]["ACCZ"][0])):
+        accx_max = float(r["values"]["ACCX"][0])
+        accy_max = float(r["values"]["ACCY"][0])
+        accz_max = float(r["values"]["ACCZ"][0])
+        rssi = r["values"]["RSSI"][0]
         degreex = 0
 #       degreex = getDegree(accx_max, accy_max, accz_max, cal_pitch, accx_max)
         degreey = getDegree(accy_max, accx_max, accz_max, cal_pitch, accx_max)
